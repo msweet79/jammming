@@ -4,3 +4,5 @@ Jammming
 Codecademy ReactJS practice Spotify clone
 	Client ID 32e8cdb109dc46c99a74792a2cde8b5c
 	Client Secret 46047aac85cd48ccb0c1cb114dcf3cfb
+
+	https://github.com/CommanderZeldark/Jammming-Final-Submit/blob/master/src/Components/App/App.js

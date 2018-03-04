@@ -1,12 +1,28 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './app.css';
 
-import SearchBar from './components/SearchBar/SearchBar';
-import SearchResults from './components/SearchResults/SearchResults';
-import Playlist from './components/playlist/playlist';
+import SearchBar from '../SearchBar/SearchBar';
+import SearchResults from '../SearchResults/SearchResults';
+import Playlist from '../Playlist/Playlist';
 
-class App extends Component {
+class App extends React.Component {
+  constructor (props) {
+    super(props) {
+      this.state = {
+        searchResults: [
+          {name: 'a', artist: 'b', album: 'c'},
+          {name: 'd', artist: 'e', album: 'f'}
+        ]
+      };
+
+    this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
+    this.updatePlaylist = this.updatePlaylist.bind(this);
+
+
+    }
+
+  }
   render() {
     return (
       <div>
@@ -32,7 +48,9 @@ class App extends Component {
       </div>
 */
     );
-  }
+    //end of render method
+  };
+  //end of class App
 }
 
 export default App;

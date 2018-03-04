@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './searchResults.css';
 
 export class SearchResults extends React.Component {
