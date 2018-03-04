@@ -9,8 +9,10 @@ class SearchResults extends React.Component {
         <h2>Results</h2>
         <TrackList tracks={this.props.searchResults} onAdd={this.props.onAdd} isRemoval={this.props.isRemoval} />
       </div>
-    )
-  }
+    );
+    //end of render function
+  };
+  //end of SearchResults element
 }
 
 export default SearchResults;
