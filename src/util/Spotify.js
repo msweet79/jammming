@@ -1,4 +1,7 @@
-import React from 'react';
+//import React from 'react';
+//Need to register my app later today
+const cID = "";
+const redirectUri = "http://localhost:3000/";
 
 let userToken;
 
