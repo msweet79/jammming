@@ -50,7 +50,7 @@ class App extends React.Component {
   updatePlaylistName(name) {
     this.setState({playlistName: name});
   }
-
+//need uri
   savePlaylist() {
     let trackURIs = this.state.playlistTracks.map(song => song.uri);
     Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
