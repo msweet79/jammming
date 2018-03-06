@@ -1,28 +1,35 @@
-//import React from 'react';
-//Need to register my app later today
 const cID = "32e8cdb109dc46c99a74792a2cde8b5c";
 const redirectUri = "http://localhost:3000/";
 
-let userToken, expirationTime;
+let accessToken, expirationTime;
 
-const Spotify = {
-  getAccessToken() {
+let Spotify = {
+
+  getAccessToken()
+  {
     if (accessToken) {
       return accessToken;
-    };
+    }
 
-    let accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
-        let expirationTimeMatch = window.location.href.match(/expires_in=([^&]*)/);
-        if (accessTokenMatch !== null && expirationTimeMatch !== null) {
+    let accessTokenMatch
+      = window.location.href.match(/access_token=([^&]*)/);
+
+      let expirationTimeMatch
+        = window.location.href.match(/expires_in=([^&]*)/);
+
+        if (accessTokenMatch !== null && expirationTimeMatch !== null)
+        {
           accessToken = accessTokenMatch[1];
+
           expirationTime = Number(expirationTimeMatch[1]);
+
           window.setTimeout(() => accessToken = '', expirationTime * 1000);
           window.history.pushState('Access Token', null, '/');
           return accessToken;
         } else {
           const requestingUrl = "https://accounts.spotify.com/authorize/?client_id=" + cID + "&response_type=token&redirect_uri=" + redirectUri;
           window.location = requestingUrl;
-        };
+        }
       },
 
   search(term) {
