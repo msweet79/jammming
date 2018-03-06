@@ -13,19 +13,15 @@ class App extends React.Component {
       playlistName: "Jammming Tracks",
       playlistTracks: []
     };
-    this.search = this.search.bind(this);
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.savePlaylist = this.savePlaylist.bind(this);
+    this.search = this.search.bind(this);
   }
 
-  search(term) {
-    let newResults = Spotify.search(term);
-    Spotify.search(term).then(tracks => {
-      this.setState({searchResults: tracks})
-    });
-  }
+  //Spotify.getAccessToken();
+//}
 
   addTrack(track) {
     let newPlaylist = this.state.playlistTracks;
@@ -57,6 +53,13 @@ class App extends React.Component {
         playlistName: "Next Playlist",
         playlistTracks: []
       });
+    });
+  }
+
+  search(term) {
+    //let newResults = Spotify.search(term);
+    Spotify.search(term).then(tracks => {
+      this.setState({searchResults: tracks})
     });
   }
 
