@@ -1,9 +1,9 @@
 //import React from 'react';
 //Need to register my app later today
-const cID = "";
+const cID = "32e8cdb109dc46c99a74792a2cde8b5c";
 const redirectUri = "http://localhost:3000/";
 
-let userToken;
+let userToken, expirationTime;
 
 const Spotify = {
   getAccessToken() {
@@ -24,7 +24,7 @@ const Spotify = {
           window.location = requestingUrl;
         };
       },
-  
+
   search(term) {
     const accessToken = Spotify.getAccessToken();
     return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
@@ -49,7 +49,7 @@ const Spotify = {
       }
     })
   },
-  
+
   savePlaylist(playlistName, playlistTracks) {
     if (!playlistName || !playlistTracks) {
       return;
