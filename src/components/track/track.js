@@ -1,9 +1,12 @@
 import React from 'react';
 import './track.css'
 
+//Display a single track in tracklist
 class Track extends React.Component {
   constructor (props) {
     super(props);
+    
+    //Bind method to track
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
   }
@@ -16,10 +19,13 @@ class Track extends React.Component {
     this.props.onRemove(this.props.track);
   }
 
+  //Action to take when a + or - is clicked
 renderAction () {
   if (this.props.isRemoved) {
     return <a className='Track-action' onClick={this.removeTrack}>-</a>
-  };
+  } else {
+      return <a className='Track-action' onClick={this.addTrack}>+</a>
+    }
 };
 
 render () {
@@ -29,8 +35,11 @@ render () {
           <h3>{this.props.track.name}</h3>
           <p>{this.props.track.artist} | {this.props.track.album}</p>
         </div>
-        <a className="Track-action">{!this.props.isRemoval ? <div onClick={this.addTrack}>+</div> : <div onClick={this.removeTrack}>-</div>}</a>
-      </div>
+        //Try to siplify this line
+        //<a className="Track-action">{!this.props.isRemoval ? <div onClick={this.addTrack}>+</div> : <div onClick={this.removeTrack}>-</div>}</a>
+       //** May need to remove!!
+       {this.renderAction()}
+    </div>
     );
   };
 }
