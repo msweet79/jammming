@@ -8,11 +8,14 @@ import Spotify from '../../util/Spotify.js';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    //Set default states
     this.state = {
       searchResults: [],
-      playlistName: "Jammming Tracks",
+      playlistName: 'Tracks',
       playlistTracks: []
     }
+    
+    //Bind methods to app
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
@@ -20,9 +23,8 @@ class App extends React.Component {
     this.search = this.search.bind(this);
   }
 
-  //Spotify.getAccessToken();
-//}
-
+  // Click + on track to add track to list of tracks in playlist
+  // Don't add the same song twice to playlist
   addTrack(track) {
     let newPlaylist = this.state.playlistTracks;
     let playlistIds = newPlaylist.map(song => song.id);
@@ -32,6 +34,7 @@ class App extends React.Component {
     }
   }
 
+  //Click - to remove track from playlist
   removeTrack(track) {
     let newPlaylist = this.state.playlistTracks;
     let playlistIds = newPlaylist.map(song => song.id);
@@ -42,25 +45,28 @@ class App extends React.Component {
     }
   }
 
+  //Change playlist name
   updatePlaylistName(name) {
     this.setState({playlistName: name});
   }
-//need uri
+  
+// Save the playlist to Spotify. Spotify.savePlaylist in Spotify.js
+// Reset the playlist name and list of tracks in the playlist
   savePlaylist() {
     let trackURIs = this.state.playlistTracks.map(song => song.uri);
     Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
       this.setState({
-        playlistName: "Next Playlist",
+        playlistName: 'NeW Playlist',
         playlistTracks: []
-      });
-    });
+      })
+    })
   }
 
+  //Spotify.search located in spotify.js, search Spotify for search term
   search(term) {
-    //let newResults = Spotify.search(term);
     Spotify.search(term).then(tracks => {
       this.setState({searchResults: tracks})
-    });
+    })
   }
 
   render() {
