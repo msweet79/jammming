@@ -11,10 +11,10 @@ class App extends React.Component {
     //Set default states
     this.state = {
       searchResults: [],
-      playlistName: 'Tracks',
+      playlistName: '',
       playlistTracks: []
     }
-    
+
     //Bind methods to app
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
@@ -49,7 +49,7 @@ class App extends React.Component {
   updatePlaylistName(name) {
     this.setState({playlistName: name});
   }
-  
+
 // Save the playlist to Spotify. Spotify.savePlaylist in Spotify.js
 // Reset the playlist name and list of tracks in the playlist
   savePlaylist() {
