@@ -20,13 +20,13 @@ export class SearchBar extends React.Component {
 handleTermChange(e) {
   this.setState({searchTerm: e.target.value});
 }
-  
+  /*
   //**  May need to remove this!!!
   // Pass the search term to search function
   search () {
     this.props.onSearch(this.state.term)
   }
-
+*/
 render () {
   return (
       <div className="SearchBar">

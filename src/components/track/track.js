@@ -5,7 +5,7 @@ import './track.css'
 class Track extends React.Component {
   constructor (props) {
     super(props);
-    
+
     //Bind method to track
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
@@ -28,20 +28,17 @@ renderAction () {
     }
 };
 
-render () {
-  return (
+render() {
+    return (
       <div className="Track">
         <div className="Track-information">
           <h3>{this.props.track.name}</h3>
           <p>{this.props.track.artist} | {this.props.track.album}</p>
         </div>
-        //Try to siplify this line
-        //<a className="Track-action">{!this.props.isRemoval ? <div onClick={this.addTrack}>+</div> : <div onClick={this.removeTrack}>-</div>}</a>
-       //** May need to remove!!
-       {this.renderAction()}
-    </div>
+        <a className="Track-action">{!this.props.isRemoval ? <div onClick={this.addTrack}>+</div> : <div onClick={this.removeTrack}>-</div>}</a>
+      </div>
     );
-  };
+  }
 }
 
 export default Track;
